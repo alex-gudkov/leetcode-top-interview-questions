@@ -1,6 +1,4 @@
-/*
-1. Remove Duplicates from Sorted Array
-*/
+// 1. Remove Duplicates from Sorted Array
 
 /**
  * @param {number[]} nums
@@ -18,7 +16,7 @@ function removeDuplicates(nums) {
   return nums.length;
 }
 
-const nums = [1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5];
+const arr = [1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5];
 
-console.log(removeDuplicates(nums));
-console.log(nums);
+console.log(removeDuplicates(arr));
+console.log(arr);
