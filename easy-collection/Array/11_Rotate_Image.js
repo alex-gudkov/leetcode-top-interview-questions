@@ -79,5 +79,5 @@ const matrix = [
 ];
 
 console.log(matrix);
-rotate(matrix);
+__rotate(matrix);
 console.log(matrix);

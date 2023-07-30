@@ -23,7 +23,11 @@ function plusOne(digits) {
   return digits;
 }
 
-function plusOne_2(digits) {
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+function _plusOne(digits) {
   for (let i = digits.length - 1; i >= 0; i--) {
     digits[i]++;
 
@@ -41,4 +45,4 @@ function plusOne_2(digits) {
 
 const digits = [9, 9, 9];
 
-console.log(plusOne_2(digits));
+console.log(_plusOne(digits));
