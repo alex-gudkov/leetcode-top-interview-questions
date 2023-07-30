@@ -5,7 +5,7 @@
   "author": "alex-gudkov",
   "private": true,
   "license": "UNLICENSED",
-  "scripts": {
-    "hello": "echo \"hello\""
-  }
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
 }

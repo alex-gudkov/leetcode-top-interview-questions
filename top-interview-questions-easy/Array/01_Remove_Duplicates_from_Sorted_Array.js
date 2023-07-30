@@ -18,7 +18,7 @@ function removeDuplicates(nums) {
  * @param {number[]} nums
  * @return {number}
  */
-function removeDuplicates_2(nums) {
+function _removeDuplicates(nums) {
   nums.splice(0, nums.length, ...new Set(nums));
 
   return nums.length;
@@ -26,5 +26,5 @@ function removeDuplicates_2(nums) {
 
 const arr = [1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5];
 
-console.log(removeDuplicates_2(arr));
+console.log(_removeDuplicates(arr));
 console.log(arr);
