@@ -46,6 +46,10 @@ function _firstUniqChar(s) {
   return -1;
 }
 
+/**
+ * @param {string} s
+ * @return {number}
+ */
 function __firstUniqChar(s) {
   const sHashMap = {};
 
