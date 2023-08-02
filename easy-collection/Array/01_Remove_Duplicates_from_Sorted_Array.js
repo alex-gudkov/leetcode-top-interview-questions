@@ -1,5 +1,3 @@
-// 1. Remove Duplicates from Sorted Array
-
 /**
  * @param {number[]} nums
  * @return {number}
@@ -16,7 +14,17 @@ function removeDuplicates(nums) {
   return nums.length;
 }
 
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+function _removeDuplicates(nums) {
+  nums.splice(0, nums.length, ...new Set(nums));
+
+  return nums.length;
+}
+
 const arr = [1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5];
 
-console.log(removeDuplicates(arr));
+console.log(_removeDuplicates(arr));
 console.log(arr);

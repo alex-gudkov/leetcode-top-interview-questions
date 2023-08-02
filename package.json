@@ -1,11 +1,11 @@
 {
-  "name": "leetcode-tasks",
+  "name": "leetcode-top-interview-questions",
   "version": "1.0.0",
   "description": "",
   "author": "alex-gudkov",
   "private": true,
   "license": "UNLICENSED",
-  "scripts": {
-    "hello": "echo \"hello\""
-  }
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
 }
