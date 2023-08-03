@@ -41,3 +41,10 @@ function _reverseList(head, prev = null) {
 
   return _reverseList(headNext, head);
 }
+
+const { LinkedListBuilder } = require('./00_Linked_List_Builder');
+
+const head = LinkedListBuilder.fromArray([1, 2, 3, 4]);
+
+LinkedListBuilder.print(head);
+LinkedListBuilder.print(reverseList(head));

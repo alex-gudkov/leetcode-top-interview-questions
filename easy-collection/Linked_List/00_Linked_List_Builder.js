@@ -1,11 +1,21 @@
+/**
+ * Definition for singly-linked list.
+ */
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
 }
 
+/**
+ * Definition for singly-linked list builder.
+ */
 class LinkedListBuilder {
   constructor() {}
 
+  /**
+   * @param {ListNode} root
+   * @return {void}
+   */
   static print(node) {
     let s = '';
 
@@ -22,6 +32,10 @@ class LinkedListBuilder {
     console.log(s);
   }
 
+  /**
+   * @param {number[]} array
+   * @return {ListNode}
+   */
   static fromArray(arr) {
     const beforeHead = new ListNode(0, null);
 
@@ -35,6 +49,10 @@ class LinkedListBuilder {
     return beforeHead.next;
   }
 
+  /**
+   * @param {ListNode} root
+   * @return {number[]}
+   */
   static toArray(node) {
     const arr = [];
 
