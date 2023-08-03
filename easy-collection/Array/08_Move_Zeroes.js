@@ -17,10 +17,10 @@ function moveZeroes(nums) {
     nums[j] = 0;
     j++;
   }
-
-  return nums;
 }
 
 const nums = [0, 1, 0, 3, 12];
 
-console.log(moveZeroes(nums));
+console.log(nums);
+moveZeroes(nums);
+console.log(nums);

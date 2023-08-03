@@ -27,6 +27,7 @@ function reverseList(head) {
 
 /**
  * @param {ListNode} head
+ * @param {ListNode} prev Default argument.
  * @return {ListNode}
  */
 function _reverseList(head, prev = null) {
@@ -38,5 +39,5 @@ function _reverseList(head, prev = null) {
 
   head.next = prev;
 
-  return reverseList(headNext, head);
+  return _reverseList(headNext, head);
 }
