@@ -33,3 +33,9 @@ function _maxDepth(root) {
 
   return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 }
+
+const { TreeBuilder } = require('./00_Tree_Builder');
+
+const root = TreeBuilder.fromArray([3, 9, 20, null, null, 15, 7]);
+
+console.log(maxDepth(root));
