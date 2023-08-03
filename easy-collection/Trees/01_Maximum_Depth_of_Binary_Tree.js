@@ -9,6 +9,7 @@ function TreeNode(val, left, right) {
 
 /**
  * @param {TreeNode} root
+ * @param {number} depth Default argument.
  * @return {number}
  */
 function maxDepth(root, depth = 0) {
