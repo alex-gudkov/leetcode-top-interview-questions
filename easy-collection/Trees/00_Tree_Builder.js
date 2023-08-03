@@ -1,17 +1,27 @@
-class TreeNode {
-  constructor(val) {
-    this.val = val;
-    this.left = null;
-    this.right = null;
-  }
+/**
+ * Definition for a binary tree node.
+ */
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
 }
 
+/**
+ * Definition for a binary tree builder.
+ */
 class TreeBuilder {
   static #PRINT_BRANCH_LEFT = '└── ';
   static #PRINT_BRANCH_RIGHT = '┌── ';
   static #PRINT_BRANCH = '│   ';
   static #PRINT_SPACE = '    ';
 
+  /**
+   * @param {TreeNode} root
+   * @param {string} prefix Default argument.
+   * @param {boolean} isLeft Default argument.
+   * @return {void}
+   */
   static print(node, prefix = '', isLeft = true) {
     if (!node) {
       return;
@@ -24,10 +34,14 @@ class TreeBuilder {
     console.log(prefix + (isLeft ? this.#PRINT_BRANCH_LEFT : this.#PRINT_BRANCH_RIGHT) + node.val);
 
     if (node.left) {
-      TreeBuilder.print(node.left, prefix + (isLeft ? '    ' : '│   '), true);
+      TreeBuilder.print(node.left, prefix + (isLeft ? this.#PRINT_SPACE : this.#PRINT_BRANCH), true);
     }
   }
 
+  /**
+   * @param {TreeNode} root
+   * @return {void}
+   */
   static toArray(root) {
     const array = [];
 
@@ -57,6 +71,10 @@ class TreeBuilder {
     return array;
   }
 
+  /**
+   * @param {number[]} array
+   * @return {TreeNode}
+   */
   static fromArray(array) {
     if (array.length === 0) {
       return null;
