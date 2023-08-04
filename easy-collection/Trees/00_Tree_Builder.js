@@ -16,6 +16,8 @@ class TreeBuilder {
   static #PRINT_BRANCH = '│   ';
   static #PRINT_SPACE = '    ';
 
+  constructor() {}
+
   /**
    * @param {TreeNode} root
    * @param {string} prefix Default argument.
@@ -43,10 +45,10 @@ class TreeBuilder {
    * @return {void}
    */
   static toArray(root) {
-    const array = [];
+    const arr = [];
 
     if (!root) {
-      return array;
+      return arr;
     }
 
     const nodesQueue = [];
@@ -57,40 +59,40 @@ class TreeBuilder {
       const node = nodesQueue.shift();
 
       if (!node) {
-        array.push(null);
+        arr.push(null);
 
         continue;
       }
 
-      array.push(node.val);
+      arr.push(node.val);
 
       nodesQueue.push(node.left);
       nodesQueue.push(node.right);
     }
 
-    return array;
+    return arr;
   }
 
   /**
-   * @param {number[]} array
+   * @param {number[]} arr
    * @return {TreeNode}
    */
-  static fromArray(array) {
-    if (array.length === 0) {
+  static fromArray(arr) {
+    if (arr.length === 0) {
       return null;
     }
 
-    const rootValue = parseInt(array[0]) ?? null;
+    const rootValue = parseInt(arr[0]) ?? null;
     const root = new TreeNode(rootValue);
     const nodesQueue = [root];
 
     let i = 1;
     let val;
 
-    while (i < array.length) {
+    while (i < arr.length) {
       const node = nodesQueue.shift();
 
-      val = array[i];
+      val = arr[i];
       i++;
 
       if (val) {
@@ -100,11 +102,11 @@ class TreeBuilder {
         nodesQueue.push(node.left);
       }
 
-      if (i >= array.length) {
+      if (i >= arr.length) {
         break;
       }
 
-      val = array[i];
+      val = arr[i];
       i++;
 
       if (val) {
@@ -124,8 +126,8 @@ module.exports = {
 };
 
 /* Sample usage
- * const array = [3, 9, 20, null, null, 15, 7];
- * const root = TreeBuilder.fromArray(array);
+ * const arr = [3, 9, 20, null, null, 15, 7];
+ * const root = TreeBuilder.fromArray(arr);
  *
  * TreeBuilder.print(root);
  * console.log(TreeBuilder.toArray(root));
