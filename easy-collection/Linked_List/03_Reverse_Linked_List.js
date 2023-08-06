@@ -11,33 +11,40 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 function reverseList(head) {
-  let curr = head;
-  let prev = null;
+  let node = head;
+  let nodePrev = null;
 
-  while (curr) {
-    const currNext = curr.next;
+  while (node) {
+    const nodeNext = node.next;
 
-    curr.next = prev;
-    prev = curr;
-    curr = currNext;
+    node.next = nodePrev;
+    nodePrev = node;
+    node = nodeNext;
   }
 
-  return prev;
+  return nodePrev;
 }
 
 /**
  * @param {ListNode} head
- * @param {ListNode} prev Default argument.
+ * @param {ListNode} nodePrev Default argument.
  * @return {ListNode}
  */
-function _reverseList(head, prev = null) {
+function _reverseList(head, nodePrev = null) {
   if (!head) {
-    return prev;
+    return nodePrev;
   }
 
   const headNext = head.next;
 
-  head.next = prev;
+  head.next = nodePrev;
 
   return _reverseList(headNext, head);
 }
+
+const { LinkedListBuilder } = require('./00_Linked_List_Builder');
+
+const head = LinkedListBuilder.fromArray([1, 2, 3, 4]);
+
+LinkedListBuilder.print(head);
+LinkedListBuilder.print(reverseList(head));
