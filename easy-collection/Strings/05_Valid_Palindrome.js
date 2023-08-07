@@ -5,7 +5,7 @@
 function isPalindrome(s) {
   const t = s.replace(/[^0-9a-z]/gi, '').toLowerCase();
   const tLength = t.length;
-  const tHalfLength = ~~(tLength / 2);
+  const tHalfLength = Math.trunc(tLength / 2);
 
   for (let i = 0; i < tHalfLength; i++) {
     if (t[i] !== t[tLength - i - 1]) {

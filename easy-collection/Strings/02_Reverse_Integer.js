@@ -42,7 +42,7 @@ function __reverse(x) {
   while (x > 0) {
     result *= 10;
     result += x % 10;
-    x = ~~(x / 10);
+    x = Math.trunc(x / 10);
   }
 
   if (result > 2 ** 31) {
