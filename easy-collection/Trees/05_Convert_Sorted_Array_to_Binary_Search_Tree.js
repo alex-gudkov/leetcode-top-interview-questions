@@ -30,7 +30,7 @@ function sortedArrayToBST(arr) {
  * @param {number[]} arr
  * @return {TreeNode}
  */
-function sortedArrayToBST(arr) {
+function _sortedArrayToBST(arr) {
   if (!arr.length) {
     return null;
   }
@@ -49,7 +49,7 @@ function sortedArrayToBST(arr) {
  * @param {number[]} arr
  * @return {TreeNode}
  */
-function sortedArrayToBST(arr) {
+function __sortedArrayToBST(arr) {
   if (!arr.length) {
     return null;
   }
