@@ -17,7 +17,7 @@ function sortedArrayToBST(arr) {
       return null;
     }
 
-    const mid = ~~((i + j) / 2);
+    const mid = Math.floor((i + j) / 2);
     const node = new TreeNode(arr[mid], fn(i, mid - 1), fn(mid + 1, j));
 
     return node;
@@ -35,7 +35,7 @@ function sortedArrayToBST(arr) {
     return null;
   }
 
-  const mid = ~~(arr.length / 2);
+  const mid = Math.floor(arr.length / 2);
   const root = new TreeNode(
     arr[mid],
     sortedArrayToBST(arr.slice(0, mid)),

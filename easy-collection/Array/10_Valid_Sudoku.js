@@ -61,7 +61,7 @@ function isValidSudoku(board) {
         return false;
       }
 
-      iBox = ~~(j / BOX_SIZE) + ~~(i / BOX_SIZE) * BOX_SIZE;
+      iBox = Math.floor(j / BOX_SIZE) + Math.floor(i / BOX_SIZE) * BOX_SIZE;
       jBox = (i % BOX_SIZE) * BOX_SIZE + (j % BOX_SIZE);
       key = board[iBox][jBox];
       boxHashMap[key]--;
@@ -111,7 +111,7 @@ function _isValidSudoku(board) {
       }
 
       key =
-        board[~~(j / BOX_SIZE) + ~~(i / BOX_SIZE) * BOX_SIZE][
+        board[Math.floor(j / BOX_SIZE) + Math.floor(i / BOX_SIZE) * BOX_SIZE][
           (i % BOX_SIZE) * BOX_SIZE + (j % BOX_SIZE)
         ];
 

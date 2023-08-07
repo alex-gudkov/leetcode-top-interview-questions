@@ -29,7 +29,7 @@ function rotate(matrix) {
  */
 function _rotate(matrix) {
   const matrixSize = matrix.length;
-  const middle = ~~(matrixSize / 2);
+  const middle = Math.floor(matrixSize / 2);
   let len, opp, temp;
 
   for (let i = 0; i < middle; i++) {
