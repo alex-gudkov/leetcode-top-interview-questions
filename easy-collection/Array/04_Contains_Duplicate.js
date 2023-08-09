@@ -6,6 +6,39 @@ function containsDuplicate(nums) {
   return new Set(nums).size !== nums.length;
 }
 
-const nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2];
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+function _containsDuplicate(nums) {
+  const numsHahMap = new Set();
 
-console.log(containsDuplicate(nums));
+  for (const num of nums) {
+    if (numsHahMap.has(num)) {
+      return true;
+    }
+
+    numsHahMap.add(num);
+  }
+
+  return false;
+}
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+function __containsDuplicate(nums) {
+  nums.sort((a, b) => a - b);
+
+  for (let i = nums.length - 1; i > 0; i--) {
+    if (nums[i] === nums[i - 1]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+const nums = [1, 2, 3, 3, 4, 5];
+
+console.log(__containsDuplicate(nums));
