@@ -1,4 +1,7 @@
-// O(n) time | O(n) space
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 function rob(nums) {
   const sums = new Array(nums.length + 1);
 
@@ -15,7 +18,10 @@ function rob(nums) {
   return sums[nums.length];
 }
 
-// O(n) time | O(1) space
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 function _rob(nums) {
   let sum = 0;
   let sumPrev = 0;
@@ -30,7 +36,10 @@ function _rob(nums) {
   return sum;
 }
 
-// O(2^n) time | O(2^n) space
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 function __rob(nums, i = 0) {
   if (i >= nums.length) {
     return 0;
@@ -42,7 +51,10 @@ function __rob(nums, i = 0) {
   return Math.max(sumIfSkip, sumIfRob);
 }
 
-// O(n) time | O(n) space
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 function ___rob(nums, i = 0, memo = {}) {
   const key = i.toString();
 
