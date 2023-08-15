@@ -18,6 +18,24 @@ function rob(nums) {
   return sums[nums.length];
 }
 
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+function _rob(nums) {
+  let sum = 0;
+  let sumPrev = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    const maxSum = Math.max(nums[i] + sumPrev, sum);
+
+    sumPrev = sum;
+    sum = maxSum;
+  }
+
+  return sum;
+}
+
 const nums = [2, 7, 9, 3, 1];
 
-console.log(rob(nums));
+console.log(_rob(nums));
