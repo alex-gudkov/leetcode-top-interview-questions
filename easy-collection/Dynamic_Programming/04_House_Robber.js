@@ -3,19 +3,31 @@
  * @return {number}
  */
 function rob(nums) {
-  const sums = new Array(nums.length + 1);
-
-  sums[0] = 0;
-  sums[1] = nums[0];
-
-  for (let i = 1; i < nums.length; i++) {
-    const sumIfSkip = sums[i];
-    const sumIfRobe = sums[i - 1] + nums[i];
-
-    sums[i + 1] = Math.max(sumIfSkip, sumIfRobe);
+  if (nums.length === 0) {
+    return 0;
   }
 
-  return sums[nums.length];
+  if (nums.length === 1) {
+    return nums[0];
+  }
+
+  if (nums.length === 2) {
+    return Math.max(nums[0], nums[1]);
+  }
+
+  const sums = new Array(nums.length);
+
+  sums[0] = nums[0];
+  sums[1] = Math.max(nums[0], nums[1]);
+
+  for (let i = 2; i < nums.length; i++) {
+    const sumIfRobe = sums[i - 2] + nums[i];
+    const sumIfSkip = sums[i - 1];
+
+    sums[i] = Math.max(sumIfRobe, sumIfSkip);
+  }
+
+  return sums[nums.length - 1];
 }
 
 /**
@@ -76,4 +88,4 @@ function ___rob(nums, i = 0, memo = {}) {
 
 const nums = [2, 7, 9, 3, 1];
 
-console.log(___rob(nums));
+console.log(rob(nums));
