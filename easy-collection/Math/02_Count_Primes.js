@@ -27,3 +27,31 @@ function countPrimes(n) {
 
   return primesCount;
 }
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+function _countPrimes(n) {
+  const isNotPrimeNums = new Array(n).fill(false);
+  let res = 0;
+
+  isNotPrimeNums[0] = true;
+  isNotPrimeNums[1] = true;
+
+  for (let num = 2; num < n; num++) {
+    if (isNotPrimeNums[num]) {
+      continue;
+    }
+
+    res++;
+
+    for (let mult = num * num; mult < n; mult += num) {
+      isNotPrimeNums[mult] = true;
+    }
+  }
+
+  return res;
+}
+
+console.log(_countPrimes(10));
