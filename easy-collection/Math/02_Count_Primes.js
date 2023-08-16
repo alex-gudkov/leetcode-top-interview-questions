@@ -17,15 +17,15 @@ function countPrimes(n) {
     }
   }
 
-  let primesCount = 0;
+  let count = 0;
 
-  for (let i = 2; i * i < n; i++) {
+  for (let i = 2; i < n; i++) {
     if (primes[i]) {
-      primesCount++;
+      count++;
     }
   }
 
-  return primesCount;
+  return count;
 }
 
 /**
@@ -33,25 +33,60 @@ function countPrimes(n) {
  * @return {number}
  */
 function _countPrimes(n) {
-  const isNotPrimeNums = new Array(n).fill(false);
-  let res = 0;
+  if (n <= 2) {
+    return 0;
+  }
 
-  isNotPrimeNums[0] = true;
-  isNotPrimeNums[1] = true;
+  const isNotPrimeNums = new Uint8Array(n);
+  let count = 0;
 
   for (let num = 2; num < n; num++) {
     if (isNotPrimeNums[num]) {
       continue;
     }
 
-    res++;
+    count++;
 
     for (let mult = num * num; mult < n; mult += num) {
-      isNotPrimeNums[mult] = true;
+      isNotPrimeNums[mult] = 1;
     }
   }
 
-  return res;
+  return count;
 }
 
-console.log(_countPrimes(10));
+/**
+ * @param {number} n
+ * @return {number}
+ */
+function __countPrimes(n) {
+  if (n <= 2) {
+    return 0;
+  }
+
+  function isPrime(num) {
+    const numSqrt = Math.trunc(Math.sqrt(num));
+
+    for (let i = 3; i <= numSqrt; i += 2) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  let count = 0;
+
+  for (let i = 1; i <= n; i += 2) {
+    if (isPrime(i)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countPrimes(30));
+console.log(_countPrimes(30));
+console.log(__countPrimes(30));
