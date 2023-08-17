@@ -60,15 +60,19 @@ function _countPrimes(n) {
  * @return {number}
  */
 function __countPrimes(n) {
-  if (n <= 2) {
+  if (n < 3) {
     return 0;
   }
 
-  function isPrime(num) {
-    const numSqrt = Math.trunc(Math.sqrt(num));
+  /**
+   * @param {number} n
+   * @return {boolean}
+   */
+  function isPrime(n) {
+    const nSqrt = Math.trunc(Math.sqrt(n)) + 1;
 
-    for (let i = 3; i <= numSqrt; i += 2) {
-      if (num % i === 0) {
+    for (let i = 3; i < nSqrt; i += 2) {
+      if (n % i === 0) {
         return false;
       }
     }
@@ -76,9 +80,9 @@ function __countPrimes(n) {
     return true;
   }
 
-  let count = 0;
+  let count = 1;
 
-  for (let i = 1; i <= n; i += 2) {
+  for (let i = 3; i < n; i += 2) {
     if (isPrime(i)) {
       count++;
     }
@@ -87,6 +91,6 @@ function __countPrimes(n) {
   return count;
 }
 
-console.log(countPrimes(30));
-console.log(_countPrimes(30));
-console.log(__countPrimes(30));
+console.log(countPrimes(3));
+console.log(_countPrimes(3));
+console.log(__countPrimes(3));
