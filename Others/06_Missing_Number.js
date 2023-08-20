@@ -13,3 +13,15 @@ function missingNumber(nums) {
 
   return nums.length;
 }
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+function __missingNumber(nums) {
+  const n = nums.length;
+  const numsSum = nums.reduce((res, num) => res + num, 0);
+  const expectSum = ((n + 1) / 2) * n;
+
+  return expectSum - numsSum;
+}
