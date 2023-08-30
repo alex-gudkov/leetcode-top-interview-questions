@@ -76,6 +76,47 @@ _MinStack.prototype.getMin = function () {
   return this.stack[this.n - 1].minVal;
 };
 
+class __MinStack {
+  #stack;
+
+  constructor() {
+    this.#stack = [];
+  }
+
+  /**
+   * @param {number} val
+   * @return {void}
+   */
+  push(val) {
+    const minVal = this.#stack.length
+      ? Math.min(val, this.#stack[this.#stack.length - 1].minVal)
+      : val;
+
+    this.#stack.push({ val, minVal });
+  }
+
+  /**
+   * @return {void}
+   */
+  pop() {
+    this.#stack.pop();
+  }
+
+  /**
+   * @return {number}
+   */
+  top() {
+    return this.#stack[this.#stack.length - 1].val;
+  }
+
+  /**
+   * @return {number}
+   */
+  getMin() {
+    return this.#stack[this.#stack.length - 1].minVal;
+  }
+}
+
 /**
  * Your MinStack object will be instantiated and called as such:
  */
